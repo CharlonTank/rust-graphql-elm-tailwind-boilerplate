@@ -17,7 +17,7 @@ A modern, type-safe, and full-stack boilerplate for building robust web applicat
 
 </div>
 
-https://github.com/user-attachments/assets/f2692883-16d7-4b09-8a1b-8ff543f1d316
+https://github.com/user-attachments/assets/0ecdf162-2d72-4bd1-a9d3-8fb69424a974
 
 ## ✨ Features
 
