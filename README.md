@@ -65,11 +65,8 @@ cd rust-graphql-elm-tailwind-boilerplate
 
 2. Install dependencies:
 ```bash
-# Install root dependencies
+# Install dependencies (this will also install Elm frontend dependencies via postinstall)
 npm install
-
-# Install Elm frontend dependencies
-cd src/elm && npm install && cd ../..
 ```
 
 3. Set up your environment:
