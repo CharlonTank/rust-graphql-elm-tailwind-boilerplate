@@ -1,7 +1,7 @@
 {
-  "name": "elm-graphql-auth",
+  "name": "rust-graphql-elm-tailwind-boilerplate-frontend",
   "version": "1.0.0",
-  "description": "Elm GraphQL Authentication Frontend",
+  "description": "Frontend for the full-stack boilerplate with Elm and Tailwind CSS",
   "scripts": {
     "build:css": "tailwindcss -i ./styles/input.css -o ./styles/output.css --watch",
     "dev": "concurrently \"elm-live src/Main.elm --start-page=index.html -- --output=elm.js\" \"npm run build:css\""

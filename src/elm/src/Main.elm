@@ -226,7 +226,7 @@ view model =
             [ div [ class "container mx-auto px-4 py-4" ]
                 [ div [ class "flex justify-between items-center" ]
                     [ h1 [ class "text-2xl font-bold text-blue-600" ]
-                        [ text "MyStuff" ]
+                        [ text "Rust + GraphQL + Elm + Tailwind" ]
                     , viewAuthButton model
                     ]
                 ]
@@ -265,14 +265,14 @@ viewWelcome model =
     div [ class "max-w-6xl mx-auto" ]
         [ div [ class "text-center mb-12" ]
             [ h1 [ class "text-5xl font-bold text-gray-900 mb-4" ]
-                [ text "Share Your Gear with the World" ]
+                [ text "Full-Stack Boilerplate" ]
             , p [ class "text-xl text-gray-600 mb-8" ]
-                [ text "Your digital open house for sharing the tools, equipment, and collections that make you unique." ]
+                [ text "A modern stack featuring Rust, GraphQL, Elm, and Tailwind CSS" ]
             ]
         , div [ class "grid grid-cols-1 md:grid-cols-3 gap-8 mb-12" ]
-            [ featureCard "For Developers" "Showcase your workstation setup, favorite IDE, mechanical keyboard, and essential dev tools."
-            , featureCard "For Photographers" "Share your camera gear, lenses, editing software, and photography equipment."
-            , featureCard "For Everyone" "Whatever your passion - books, art supplies, kitchen gear - show the world what you use."
+            [ featureCard "Type-Safe Backend" "Rust backend with GraphQL API for robust and reliable server-side operations."
+            , featureCard "Modern Frontend" "Elm for type-safe frontend development with elegant architecture."
+            , featureCard "Beautiful UI" "Tailwind CSS for rapid and responsive design implementation."
             ]
         , viewLogin model
         ]
@@ -282,7 +282,7 @@ viewAuthenticated : Model -> Html Msg
 viewAuthenticated model =
     div [ class "max-w-4xl mx-auto" ]
         [ h2 [ class "text-3xl font-bold mb-8" ]
-            [ text "Welcome back!" ]
+            [ text "Welcome!" ]
         , case model.user of
             RemoteData.Success users ->
                 case List.head users of
@@ -310,7 +310,7 @@ viewLogin : Model -> Html Msg
 viewLogin model =
     div [ class "max-w-md mx-auto bg-white rounded-lg shadow-md p-8" ]
         [ h2 [ class "text-2xl font-bold mb-6" ]
-            [ text "Login or Sign Up" ]
+            [ text "Authentication Demo" ]
         , viewAuthError model.authError
         , Html.form [ onSubmit AttemptLogin, class "space-y-4" ]
             [ div []
