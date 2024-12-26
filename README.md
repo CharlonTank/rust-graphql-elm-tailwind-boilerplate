@@ -1,5 +1,7 @@
 # Rust + GraphQL + Elm + Tailwind CSS Boilerplate
 
+https://github.com/user-attachments/assets/f2692883-16d7-4b09-8a1b-8ff543f1d316
+
 A modern full-stack boilerplate combining:
 - Rust backend with GraphQL API
 - Elm frontend with type-safe GraphQL integration
