@@ -4,7 +4,7 @@
   "description": "Frontend for the full-stack boilerplate with Elm and Tailwind CSS",
   "scripts": {
     "build:css": "tailwindcss -i ./styles/input.css -o ./styles/output.css --watch",
-    "dev": "concurrently \"elm-live src/Main.elm --start-page=index.html -- --output=elm.js\" \"npm run build:css\""
+    "dev": "concurrently \"elm-live src/Main.elm --start-page=index.html -- --debug --output=elm.js\" \"npm run build:css\""
   },
   "devDependencies": {
     "concurrently": "^8.2.2",

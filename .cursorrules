@@ -1,0 +1,5 @@
+pour installer un package elm :
+
+```
+yes | elm install
+

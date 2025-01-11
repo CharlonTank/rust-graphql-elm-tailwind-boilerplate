@@ -1,26 +1,29 @@
 port module Main exposing (main)
 
-import Api.InputObject
 import Api.Mutation as Mutation
-import Api.Object
 import Api.Object.User as User
 import Api.Object.UserMutations as UserMutations
 import Api.Object.UserQueries as UserQueries
 import Api.Query as Query
 import Browser
 import Graphql.Http
-import Graphql.Operation exposing (RootMutation, RootQuery)
-import Graphql.OptionalArgument exposing (OptionalArgument(..))
-import Graphql.SelectionSet as SelectionSet exposing (SelectionSet)
+import Graphql.SelectionSet as SelectionSet
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick, onInput, onSubmit)
 import RemoteData exposing (RemoteData)
 
 
+
 -- PORTS
+
+
 port storeToken : String -> Cmd msg
+
+
 port removeToken : () -> Cmd msg
+
+
 port onTokenLoad : (Maybe String -> msg) -> Sub msg
 
 
@@ -30,6 +33,7 @@ type alias Model =
     , token : Maybe String
     , user : RemoteData (Graphql.Http.Error (List User)) (List User)
     , authError : Maybe String
+    , inputAge : Maybe Int
     }
 
 
@@ -52,10 +56,12 @@ init maybeToken =
       , token = maybeToken
       , user = RemoteData.NotAsked
       , authError = Nothing
+      , inputAge = Nothing
       }
     , case maybeToken of
         Just token ->
             makeUserRequest (Just token)
+
         Nothing ->
             Cmd.none
     )
@@ -69,6 +75,7 @@ update msg model =
             , case maybeToken of
                 Just token ->
                     makeUserRequest (Just token)
+
                 Nothing ->
                     Cmd.none
             )
@@ -216,6 +223,13 @@ makeUserRequest token =
     in
     query
         |> Graphql.Http.queryRequest "http://localhost:8080/graphql"
+        |> (case token of
+                Just t ->
+                    Graphql.Http.withHeader "Authorization" ("Bearer " ++ t)
+
+                Nothing ->
+                    identity
+           )
         |> Graphql.Http.send (RemoteData.fromResult >> GotUserResponse)
 
 
@@ -406,4 +420,4 @@ main =
         , update = update
         , subscriptions = \_ -> onTokenLoad TokenLoaded
         , view = view
-        } 
+        }
