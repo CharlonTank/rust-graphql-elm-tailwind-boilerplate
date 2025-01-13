@@ -1,0 +1,16 @@
+{
+  "name": "rust-graphql-elm-tailwind-boilerplate",
+  "version": "1.0.0",
+  "description": "A modern full-stack boilerplate combining Rust, GraphQL, Elm, and Tailwind CSS",
+  "scripts": {
+    "dev": "concurrently -n \"backend,frontend,graphql\" --kill-others-on-fail \"npm run dev:backend\" \"sleep 2 && npm run dev:frontend\" \"sleep 2 && npm run watch-graphql\"",
+    "dev:frontend": "cd src/elm && npm run dev",
+    "dev:backend": "cargo watch -x run",
+    "watch-graphql": "nodemon --watch src/graphql --watch src/main.rs -e rs --exec ./generate-elm-graphql.sh",
+    "postinstall": "cd src/elm && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.2"
+  }
+}
